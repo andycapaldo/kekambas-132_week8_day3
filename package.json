@@ -1,0 +1,20 @@
+{
+  "name": "homework",
+  "version": "1.0.0",
+  "description": "\"Shopping Cart TypeScript Project\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && node ./dist/index.js"
+  },
+  "author": "Andrew Capaldo",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-loader": "^9.5.0",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@types/uuid": "^9.0.7",
+    "uuid": "^9.0.1"
+  }
+}
