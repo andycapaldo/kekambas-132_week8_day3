@@ -14,7 +14,7 @@ type User = {
     cart: Item[]
 }
 
-function createUser(name:string, age:number){ 
+function createUser(name:string, age:number):User{ 
     const newUser: User = {
         id: uuidv4(),
         name,
@@ -24,7 +24,7 @@ function createUser(name:string, age:number){
     return newUser;
 }
 
-function createItem(name:string, price:number, description:string){
+function createItem(name:string, price:number, description:string):Item{
     const newItem: Item = {
         id: uuidv4(),
         name,
@@ -34,19 +34,18 @@ function createItem(name:string, price:number, description:string){
     return newItem;
 }
 
-function addToCart(user:User, item: Item){
+function addToCart(user:User, item: Item):void{
     user.cart.push(item)
 }
 
-function removeFromCart(user: User, itemToRemove: Item){
+function removeFromCart(user: User, itemToRemove: Item):void{
     user.cart = user.cart.filter(item => item.id !== itemToRemove.id)
 }
 
-function removeQuantityFromCart(user: User, itemToRemove: Item, quantity:number){
-    let x = 0
-    while (x > quantity){
-        user.cart.splice(user.cart.findIndex((i) => i.id == itemToRemove.id), 1)
-        x++
+function removeQuantityFromCart(user: User, itemToRemove: Item, quantity:number):void{
+    for (let i=0; i<quantity; i++){
+        let index = user.cart.findIndex(item => item.id === itemToRemove.id);
+        user.cart.splice(index, 1);
     }
 }
 

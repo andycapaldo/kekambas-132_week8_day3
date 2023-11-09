@@ -26,10 +26,9 @@ function removeFromCart(user, itemToRemove) {
     user.cart = user.cart.filter(item => item.id !== itemToRemove.id);
 }
 function removeQuantityFromCart(user, itemToRemove, quantity) {
-    let x = 0;
-    while (x > quantity) {
-        user.cart.splice(user.cart.findIndex((i) => i.id == itemToRemove.id), 1);
-        x++;
+    for (let i = 0; i < quantity; i++) {
+        let index = user.cart.findIndex(item => item.id === itemToRemove.id);
+        user.cart.splice(index, 1);
     }
 }
 function cartTotal(user) {
